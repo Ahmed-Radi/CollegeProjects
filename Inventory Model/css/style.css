@@ -1,0 +1,76 @@
+
+h2 {
+	font-family: Times, serifs;
+	text-align: center;
+}
+
+.QUES {
+	background-color: #ffffff;
+	margin-top:6px;
+	height: auto;
+	border-radius: 2px;
+	box-shadow: 0 0 13px 4px #484848;
+	padding-bottom:10px;
+
+}
+
+table {
+	table-layout: fixed;
+	width: 100%;  
+	margin-bottom: 20px;
+
+}
+
+table, th, td {
+	border: 1px solid black;
+	padding: 5px; 
+	font-weight: bold;
+	margin-bottom: 20px;
+
+}
+
+caption {
+	background-color: #7292ab;
+	color: #fff;
+	font-size: 14px;
+	padding-left:10px;
+
+}
+
+.caption1 {
+	background-color: #f79646;
+	font-weight: bold;
+	text-align: center;
+	font-size:17px;
+
+}
+
+textarea {
+	resize:none;
+	width:100%;
+
+}
+
+input {
+	height:20px;
+
+}
+
+.submit {
+	height: 33px;
+	width: 120px;
+	background-color: #597992;
+	color: white;
+	font-weight: bold;
+	border: 1px solid white;
+	font-size: 17px;
+	transition: .5s;
+	border-radius: 2px;
+
+}
+
+.submit:hover {
+	box-shadow: 0 0 9px 3px #6989a2;
+	transition: .5s;
+
+}
