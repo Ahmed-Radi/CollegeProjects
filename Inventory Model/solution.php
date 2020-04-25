@@ -2,6 +2,7 @@
 include "simulationClass.php";
 ?>
 <!DOCTYPR html>
+<?php include "simulationClass.php";?>
 <html>
     <head>
         
@@ -21,7 +22,7 @@ include "simulationClass.php";
         <div class="col-lg-6 col-lg-push-3 QUES">
              <h2>Inventory Model</h2>
 
-<?
+<?php
 if(isset($_GET['Demand'],$_GET['D-Freq'],$_GET['D-Prob'],$_GET['D-RN'],$_GET['LeadTime'],$_GET['L-Freq'],$_GET['L-Prob'],$_GET['L-RN'],$_GET['NOD'],$_GET['OQ'],$_GET['RP'])&&$_GET['OQ']>$_GET['RP']){
 if(($_GET['D-Prob'] == NULL || $_GET['D-Freq'] == NULL)&&($_GET['L-Prob'] == NULL || $_GET['L-Freq'] == NULL)){
 $solve = new simulationClass($_GET['Demand'],$_GET['D-Freq'],$_GET['D-Prob'],$_GET['D-RN'],$_GET['LeadTime'],$_GET['L-Freq'],$_GET['L-Prob'],$_GET['L-RN'],$_GET['NOD'],$_GET['OQ'],$_GET['RP']);
@@ -37,8 +38,7 @@ $solve->InventoryTable();
                     <th>Cumulative</th>
                     <th>Interval RN</th>
                 <tr>
-<?
-		$y;
+<?php
 		for($y = 0 ; $y < $solve->DCounter ; $y++){
 			echo 	"<tr>
 					<td>".$solve->Demand['Demand'][$y]."</td>
@@ -59,8 +59,7 @@ $solve->InventoryTable();
                     <th>Cumulative</th>
                     <th>Interval RN</th>
                 <tr>
-<?
-		$y;
+<?php
 		for($y = 0 ; $y < $solve->LCounter ; $y++){
 			
 			echo 	"<tr>
@@ -75,7 +74,7 @@ $solve->InventoryTable();
 ?>
             </table>
             <table>
-                <caption>Order Quantity= <?echo $solve->OrderQuantity;?> Reoder Point = <?echo $solve->ReorderPoint;?></caption>
+                <caption>Order Quantity= <?php echo $solve->OrderQuantity;?> Reoder Point = <?php echo $solve->ReorderPoint;?></caption>
                 <tr>
                     <th>Day</th>
                     <th>Units<br>Received</th>
@@ -88,10 +87,8 @@ $solve->InventoryTable();
                     <th>Random<br>Number</th>
                     <th>Lead<br>Time</th>
                 <tr>
-<?
-		
+<?php
 		$x = $solve->Inventory['Days'];
-		$y;
 		for($y = 0 ; $y < $x ; $y++){
 			if(isset($solve->Inventory['UnitRecived'][$y],$solve->Inventory['BeginnigIventory'][$y],$solve->Inventory['DRandomNumbers'][$y],$solve->Inventory['IDemand'][$y])){
 
@@ -113,11 +110,11 @@ $solve->InventoryTable();
 ?>
             </table>
 		
-		<div class ='col-lg-4' style="font-style: family;font-size: 15px; font-weight:bold"> Average ending inventory = <?count($solve->Inventory['EndingInventory']) > 0 ?  print_r(array_sum($solve->Inventory['EndingInventory'])/count($solve->Inventory['EndingInventory'])) :  '0'; ?></div>
-		<div class ='col-lg-4' style="font-style: family;font-size: 15px; font-weight:bold"> Average lost sales = <?count($solve->Inventory['LostSales']) > 0 ?  print_r(array_sum($solve->Inventory['LostSales'])/count($solve->Inventory['LostSales'])) :  '0'; ?></div>
-		<div class ='col-lg-4' style="font-style: family;font-size: 15px; font-weight:bold"> Average number of orders = <?count($solve->Inventory['Order']) > 0 ?  print_r(array_sum($solve->Inventory['Order'])/count($solve->Inventory['Order'])) :  '0'; ?></div>
+		<div class ='col-lg-4' style="font-style: family;font-size: 15px; font-weight:bold"> Average ending inventory = <?php count($solve->Inventory['EndingInventory']) > 0 ?  print_r(array_sum($solve->Inventory['EndingInventory'])/count($solve->Inventory['EndingInventory'])) :  '0'; ?></div>
+		<div class ='col-lg-4' style="font-style: family;font-size: 15px; font-weight:bold"> Average lost sales = <?php count($solve->Inventory['LostSales']) > 0 ?  print_r(array_sum($solve->Inventory['LostSales'])/count($solve->Inventory['LostSales'])) :  '0'; ?></div>
+		<div class ='col-lg-4' style="font-style: family;font-size: 15px; font-weight:bold"> Average number of orders = <?php count($solve->Inventory['Order']) > 0 ?  print_r(array_sum($solve->Inventory['Order'])/count($solve->Inventory['Order'])) :  '0'; ?></div>
 
-<?}}?>
+<?php }} ?>
             <div class ="col-lg-12"style="text-align: center; padding: 20px;font-size: 17px;">
                 <a href="index.php"> >>>>> Back To Home</a>
             </div>
